@@ -36,10 +36,9 @@ docker run --init -d --name lab8-v1 -p 127.0.0.1:5000:5000 "${image}:0.0.1.RELEA
 docker run --init -d --name lab8-v2 -p 127.0.0.1:3000:3000 "${image}:0.0.2.RELEASE"
 curl.exe -fsS -i http://127.0.0.1:5000/api/users
 curl.exe -fsS -i http://127.0.0.1:3000/get_users
-python ./verify.py activity2
 ```
 
-Both requests returned HTTP 200. The first returned the two Lab 5 records. The second returned `["John Doe","Maya Haddad"]`. The verification script checks CRUD on port 5000 and compares the names response with SQLite before and after a temporary insert and delete.
+Both requests returned HTTP 200. The first returned the two Lab 5 records. The second returned `["John Doe","Maya Haddad"]`.
 
 ## Submission files
 
