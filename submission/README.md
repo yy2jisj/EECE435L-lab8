@@ -43,4 +43,4 @@ Both requests returned HTTP 200. The first returned the two Lab 5 records. The s
 
 ## Submission files
 
-The local Moodle ZIP includes the Word report, both activities’ source files, and the Activity 2 captures in `screenshots/`. The Activity 1 captures are embedded in the report. The report, screenshots, and ZIP are kept locally for review.
+The Moodle ZIP includes both activities’ source files, `Activity1_Report.docx`, and four PNGs in `screenshots/`. The first three show `docker ps -a`, `docker stop`, and `docker logs` in VS Code. The fourth shows both release tags in Docker Desktop.
