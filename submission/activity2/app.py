@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import sqlite3
-from contextlib import closing
+from pathlib import Path
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -8,10 +8,11 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
+DATABASE_PATH = Path(__file__).resolve().with_name("database.db")
 
 
 def connect_to_db():
-    conn = sqlite3.connect("database.db")
+    conn = sqlite3.connect(DATABASE_PATH)
     return conn
 
 
@@ -195,13 +196,6 @@ def api_delete_user(user_id):
     return jsonify(delete_user(user_id))
 
 
-@app.get("/get_users")
-def get_user_names():
-    with closing(connect_to_db()) as conn:
-        rows = conn.execute("SELECT name FROM users ORDER BY user_id").fetchall()
-    return jsonify([name for (name,) in rows])
-
-
 if __name__ == "__main__":
     create_db_table()
-    app.run(host="0.0.0.0", port=3000)
+    app.run(host="0.0.0.0", port=5000)

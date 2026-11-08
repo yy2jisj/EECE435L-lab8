@@ -1,5 +1,7 @@
 *
 !Dockerfile
+!Dockerfile.users
 !app.py
+!users_app.py
 !database.db
 !requirements.txt
